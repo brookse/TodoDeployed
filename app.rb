@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sequel'
 require 'sinatra/assetpack'
-require 'sass'
 
 class App < Sinatra::Application
 register Sinatra::AssetPack
