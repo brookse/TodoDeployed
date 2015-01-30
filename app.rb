@@ -4,9 +4,8 @@ require 'sequel'
 require 'sinatra/assetpack'
 require 'sass'
 
-register Sinatra::AssetPack
-
 class App < Sinatra::Application
+register Sinatra::AssetPack
 end
 	assets do 
 
