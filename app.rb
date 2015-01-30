@@ -1,19 +1,11 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sequel'
-require 'sinatra/assetpack'
+
+enable :static
 
 class App < Sinatra::Application
-register Sinatra::AssetPack
 end
-	assets do 
-
-		css :application, [
-			'/css/reset.css',
-			'/css/style.css'
-		]
-	end
-
 	configure do
 		# works
 		#DB = Sequel.connect('postgres://postgres:password@localhost:5432/tasks')
