@@ -1,0 +1,9 @@
+<% if @task %>
+  <form action="/<%= @task[:id] %>" method="post" id="edit">
+    <input type="hidden" name="_method" value="put">
+    <textarea name="content"><%= @task[:content] %></textarea>
+    <input type="submit">
+  </form>
+<% else %>
+  <p>Note not found.</p>
+<% end %>

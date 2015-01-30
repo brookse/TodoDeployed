@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link href="css/reset.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script src="vendor/knockout-3.2.0.min.js"></script>
+		<script src="vendor/falcon.min.js"></script>
+		<script src="vendor/jquery-1.11.1.min.js"></script>
+		<script src="vendor/falcon.jquery_adapter.min.js"></script>
+		<script src="/todo.js"></script>
+	</head>
+	
+	<body>
+	
+		<header>
+			<h1><a href='/'>To Do List!</a></h1>
+		</header>
+		
+		<div id="app"></div>
+		<template id="task_list-tmpl">
+			<section id="add">
+				<form data-bind="submit: $view.add, submitBubble:false">
+					<textarea name="content" data-bind="value: $view.newTask" placeholder="Write a task!"></textarea>
+					<input type="submit" value="Write Task!">
+				</form>
+			</section>
+
+			<section id="display">
+			<ul class="complete" data-bind="foreach: $view.tasks">
+			<article>
+				<b data-bind="text: $data.task"></b><b data-bind="if: $data.completed"> - completed!</b>
+				<p class="links">
+						<a data-bind="click: $view.complete">&#10003;</a>
+						<a data-bind="click: $view.remove">&#10007;</a>
+				</p>
+				<p><small> created <a data-bind="text: $data.created"></a></small></p>	
+			</article>
+			</ul>
+			</section>
+		</template>
+		<footer>
+			<br><p><small>Made by Lyzzi</small></p>
+		</footer>
+		
+	</body>
+	
+</html>
