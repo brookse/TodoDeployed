@@ -2,15 +2,18 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sequel'
 
-# works
-DB = Sequel.connect('postgres://postgres:password@localhost:5432/tasks')
-
-# works
-DB.create_table! :tasks do
-	primary_key :id
-	String :task
-	Boolean :completed
-	DateTime :created
+configure do
+	# works
+	#DB = Sequel.connect('postgres://postgres:password@localhost:5432/tasks
+	DB = Sequel.connect(ENV['DATABASE_URL'])
+	
+	# works
+	DB.create_table! :tasks do
+		primary_key :id
+		String :task
+		Boolean :completed
+		DateTime :created
+	end
 end
 
 # works
